@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background:
+    linear-gradient(
+        135deg,
+        #000000 0%,
+        #111111 40%,
+        #e21e26 100%
+    );
+  text-align: center;
+  padding: 20px;
+}
+
+.page {
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.3);
+}
+
+h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.instruction {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.input-box {
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  font-size: 20px;
+  border: 3px solid #111;
+  border-radius: 15px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+.preview-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 30px 0 20px;
+  color: #111;
+}
+.preview {
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+  border: 4px solid #111;
+  border-radius: 25px;
+  padding: 20px;
+  background: #fafafa;
+}
+
+.dress {
+  width: 100%;
+  display: block;
+}
+
+.player-name {
+  position: absolute;
+  top: 26%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 34px;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.note{
+
+    margin-top:20px;
+
+    color:#666;
+
+    font-size:14px;
+}
+
+@media (max-width: 768px) {
+
+  .page {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .instruction {
+    font-size: 16px;
+  }
+
+  label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+  input {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  .preview-title {
+    font-size: 28px;
+  }
+
+  .player-name {
+    top: 26%;
+    width: 60%;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .instruction {
+    font-size: 14px;
+  }
+
+  .preview-title {
+    font-size: 24px;
+  }
+
+  .player-name {
+    font-size: 18px;
+    width: 65%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <h1>Lady Bugs Netball Dress</h1>
+
+  <p class="instruction">
+    Enter your name below to see how it will appear on the back of the dress.
+  </p>
+
+  <div class="input-box">
+
+    <label for="name">
+      Player Name to be Printed
+    </label>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+      maxlength="20"
+      oninput="updateName()"
+      autocomplete="off"
+    >
+
+  </div>
+
+
+  <div class="preview-title">
+    Dress Preview
+  </div>
+
+
+  <div class="preview">
+
+    <!-- YOUR DRESS IMAGE -->
+    <img
+      id="dressImage"
+      class="dress"
+      src="dress-back.jpg"
+      alt="Lady Bugs Netball Dress Back"
+    >
+
+    <!-- LIVE PLAYER NAME -->
+    <div
+      id="playerName"
+      class="player-name"
+    >
+      PLAYER NAME
+    </div>
+
+  </div>
+
+
+  <div class="note">
+    Your name will update automatically as you type.
+  </div>
+
+</div>
+
+
+<script>
+
+  function updateName() {
+
+    const input =
+      document.getElementById("name");
+
+    const playerName =
+      document.getElementById("playerName");
+
+    let name =
+      input.value.trim();
+
+    if (name === "") {
+      playerName.textContent = "PLAYER NAME";
+    } else {
+      playerName.textContent =
+        name.toUpperCase();
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
